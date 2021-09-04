@@ -1,6 +1,6 @@
 az group create \
 --name RG-19-ASR \
---location centralindia
+--location westeurope
 
 az network vnet create \
   --resource-group RG-19-ASR \
@@ -51,7 +51,7 @@ az vm create \
   --vnet-name MAIN-vNET \
   --nsg NSG-MAIN \
   --subnet SUBNET-01 \
-  --size Standard_B1s \
+  --size Standard_B2s \
   --image UbuntuLTS
   
 az vm extension set \
@@ -60,4 +60,4 @@ az vm extension set \
   --name CustomScript \
   --vm-name VM-01 \
   --resource-group RG-19-ASR \
-  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install apache2 && echo Web Server in Main Region - Central India - VM-01 > /var/www/html/index.html"}'
+  --settings '{"commandToExecute":"apt-get -y update && apt-get -y install apache2 && echo Web Server in Main Region - West Europe - VM-01 > /var/www/html/index.html"}'
